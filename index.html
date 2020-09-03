@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Change background after Clicking Button</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <button class="btn" data-color="blue">Blue</button>
+        <button class="btn" data-color="red">Red</button>
+        <button class="btn" data-color="green">Green</button>
+        <button class="btn" data-color="yellow">Yellow</button>
+     
+        <div class ="box"></div>
+
+        <script>
+            //save as a varible btn. this will return a nodelist of the four buttons.            
+            //console.log(btn[i])
+
+            const btn=document.querySelectorAll(".btn");
+            const box =document.querySelector(".box");
+            //go through btn and return them as a list rather than a nodelist.
+            for(let i=0; i<btn.length; i++){
+                btn[i].addEventListener("click", function(){
+                   //console.log(This) will print anything you click on to the console. so we are saying get the value saved to this attribute and set it as the background style for box
+                   box.style.background = (this.getAttribute("data-color"));
+                   this.style.color = (this.getAttribute("data-color"));
+                })
+            }
+
+        </script>
+    </body>
+</html>
